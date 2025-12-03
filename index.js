@@ -4,8 +4,8 @@ const axios = require('axios');
 require('dotenv').config();
 
 
-// Function to check if a number is odd using OpenAI ChatGPT
-async function isOdd(number) {
+// Helper function to query OpenAI API for odd/even determination
+async function queryOpenAI(number) {
     try {
         // Construct the request payload
         const requestData = {
@@ -26,19 +26,43 @@ async function isOdd(number) {
         const { choices } = response.data;
         const answer = choices[0].message.content.trim().toLowerCase(); // Adjust based on API response structure
 
-        // Determine if the response indicates odd or even
-        if (answer.includes('odd')) {
-            return true;
-        } else if (answer.includes('even')) {
-            return false;
-        } else {
-            throw new Error('Unable to determine if number is odd or even.');
-        }
+        // Return the parsed answer
+        return answer;
     } catch (error) {
         console.error('Error querying OpenAI:', error);
         throw error;
     }
 }
 
+// Function to check if a number is odd using OpenAI ChatGPT
+async function isOdd(number) {
+    const answer = await queryOpenAI(number);
+    
+    // Determine if the response indicates odd or even
+    if (answer.includes('odd')) {
+        return true;
+    } else if (answer.includes('even')) {
+        return false;
+    } else {
+        throw new Error('Unable to determine if number is odd or even.');
+    }
+}
+
+// Function to check if a number is even using OpenAI ChatGPT
+async function isEven(number) {
+    const answer = await queryOpenAI(number);
+    
+    // Determine if the response indicates odd or even
+    if (answer.includes('even')) {
+        return true;
+    } else if (answer.includes('odd')) {
+        return false;
+    } else {
+        throw new Error('Unable to determine if number is odd or even.');
+    }
+}
+
 module.exports = isOdd;
+module.exports.isOdd = isOdd;
+module.exports.isEven = isEven;
 
