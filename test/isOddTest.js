@@ -1,7 +1,7 @@
 // test/isOddTest.js
 
 const assert = require('assert');
-const isOdd = require('../index');
+const isOdd = require('../dist/index').default;
 
 describe('isOdd function', () => {
     it('should return true for odd numbers', async () => {
