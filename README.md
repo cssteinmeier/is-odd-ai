@@ -2,9 +2,9 @@
 
 [![npm version](https://badge.fury.io/js/is-odd-ai.svg)](https://badge.fury.io/js/is-odd-ai)
 
-Why check if something is odd simply, when you can do it with ✨AI✨
+Why check if something is odd or even simply, when you can do it with ✨AI✨
 
-`is-odd-ai` is a unique package that utilizes OpenAI's GPT-3.5-turbo model to determine if a number is odd or even. Because sometimes you just want to add a little bit of AI magic to your number checking!
+`is-odd-ai` is a unique package that utilizes OpenAI's GPT-3.5-turbo model to determine if a number is odd or even. It provides both `isOdd` and `isEven` functions. Because sometimes you just want to add a little bit of AI magic to your number checking!
 
 ## Installation
 
@@ -31,20 +31,31 @@ Here's an example of how to use the `is-odd-ai` package in your project:
 
 ```javascript
 const isOdd = require('is-odd-ai');
+const { isEven } = require('is-odd-ai');
 
 (async () => {
     const number = 5;
     const result = await isOdd(number);
     console.log(`Is ${number} odd? ${result}`); // Output: Is 5 odd? true
+    
+    const number2 = 10;
+    const result2 = await isEven(number2);
+    console.log(`Is ${number2} even? ${result2}`); // Output: Is 10 even? true
 })();
 ```
 
-## Function
+## Functions
 
 ### `isOdd(number)`
 
 - **Parameters:** `number` (Number) - The number to check.
 - **Returns:** `Promise<Boolean>` - Resolves to `true` if the number is odd, `false` if even.
+- **Throws:** Throws an error if the determination could not be made.
+
+### `isEven(number)`
+
+- **Parameters:** `number` (Number) - The number to check.
+- **Returns:** `Promise<Boolean>` - Resolves to `true` if the number is even, `false` if odd.
 - **Throws:** Throws an error if the determination could not be made.
 
 ## Contributing
