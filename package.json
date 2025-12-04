@@ -13,7 +13,8 @@
     "dotenv": "^16.4.5"
   },
   "devDependencies": {
-    "mocha": "^10.5.2"
+    "mocha": "^10.5.2",
+    "sinon": "^21.0.0"
   },
   "repository": {
     "type": "git",
