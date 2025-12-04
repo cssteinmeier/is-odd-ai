@@ -1,17 +1,13 @@
 {
   "name": "is-odd-ai",
   "version": "1.0.2",
-  "description": "Why check if something is odd simply, when you can do it with ✨AI✨",
+  "description": "Determines if a number is odd using the modulus operator",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
   },
   "author": "",
   "license": "Apache-2.0",
-  "dependencies": {
-    "axios": "^1.7.2",
-    "dotenv": "^16.4.5"
-  },
   "devDependencies": {
     "mocha": "^10.5.2"
   },
