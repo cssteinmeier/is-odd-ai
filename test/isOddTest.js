@@ -6,16 +6,19 @@ const axios = require('axios');
 const isOdd = require('../index');
 
 describe('isOdd function', () => {
+    let sandbox;
     let axiosStub;
 
     beforeEach(() => {
+        // Create a sandbox for better test isolation
+        sandbox = sinon.createSandbox();
         // Stub axios.post to avoid real API calls
-        axiosStub = sinon.stub(axios, 'post');
+        axiosStub = sandbox.stub(axios, 'post');
     });
 
     afterEach(() => {
-        // Restore the original axios.post after each test
-        axiosStub.restore();
+        // Restore all stubs created in the sandbox
+        sandbox.restore();
     });
 
     it('should return true for odd numbers', async () => {
@@ -70,13 +73,10 @@ describe('isOdd function', () => {
 
     it('should throw an error for non-numeric input', async () => {
         axiosStub.rejects(new Error('Invalid input'));
-        try {
-            await isOdd('abc');
-            // If isOdd does not throw an error for non-numeric input, fail the test
-            assert.fail('Expected error to be thrown');
-        } catch (error) {
-            assert.strictEqual(error instanceof Error, true);
-        }
+        await assert.rejects(
+            async () => { await isOdd('abc'); },
+            Error
+        );
     });
 });
 
