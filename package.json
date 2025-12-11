@@ -17,10 +17,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/rhettlunn/is-odd-ai.git"
+    "url": "https://github.com/cssteinmeier/is-odd-ai.git"
   },
   "bugs": {
-    "url": "https://github.com/rhettlunn/is-odd-ai/issues"
+    "url": "https://github.com/cssteinmeier/is-odd-ai/issues"
   },
-  "homepage": "https://github.com/rhettlunn/is-odd-ai#readme"
+  "homepage": "https://github.com/cssteinmeier/is-odd-ai#readme"
 }
